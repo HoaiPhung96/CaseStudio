@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Oẳn Tù Tì | Hoai Phung</title>
+    <meta name="description" content="">
+    <meta name="author" content="Hoai Phung">
+    <link rel="shortcut icon" href="logo.png">
+    <link rel="stylesheet" href="css/game.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
+</head>
+
+<body>
+    <h1 style="font-size: 40px">
+        <script type="text/javascript">
+            farbbibliothek = new Array();
+            farbbibliothek[0] = new Array("#FF0000", "#FF1100", "#FF2200", "#FF3300", "#FF4400", "#FF5500", "#FF6600", "#FF7700", "#FF8800", "#FF9900", "#FFaa00", "#FFbb00", "#FFcc00", "#FFdd00", "#FFee00", "#FFff00", "#FFee00", "#FFdd00", "#FFcc00", "#FFbb00", "#FFaa00", "#FF9900", "#FF8800", "#FF7700", "#FF6600", "#FF5500", "#FF4400", "#FF3300", "#FF2200", "#FF1100");
+            farbbibliothek[3] = new Array("#FF0000", "#FF4000", "#FF8000", "#FFC000", "#FFFF00", "#C0FF00", "#80FF00", "#40FF00", "#00FF00", "#00FF40", "#00FF80", "#00FFC0", "#00FFFF", "#00C0FF", "#0080FF", "#0040FF", "#0000FF", "#4000FF", "#8000FF", "#C000FF", "#FF00FF", "#FF00C0", "#FF0080", "#FF0040");
+            farbbibliothek[1] = new Array("#FF0000", "#EE0000", "#DD0000", "#CC0000", "#BB0000", "#AA0000", "#990000", "#880000", "#770000", "#660000", "#550000", "#440000", "#330000", "#220000", "#110000", "#000000", "#110000", "#220000", "#330000", "#440000", "#550000", "#660000", "#770000", "#880000", "#990000", "#AA0000", "#BB0000", "#CC0000", "#DD0000", "#EE0000");
+            farbbibliothek[2] = new Array("#000000", "#000000", "#000000", "#FFFFFF", "#FFFFFF", "#FFFFFF");
+            farben = farbbibliothek[3];
+
+            function farbschrift() {
+                for (var b = 0; b < Buchstabe.length; b++) {
+                    document.all["a" + b].style.color = farben[b]
+                }
+                farbverlauf()
+            }
+
+            function string2array(b) {
+                Buchstabe = new Array();
+                while (farben.length < b.length) {
+                    farben = farben.concat(farben)
+                }
+                k = 0;
+                while (k <= b.length) {
+                    Buchstabe[k] = b.charAt(k);
+                    k++
+                }
+            }
+
+            function divserzeugen() {
+                for (var b = 0; b < Buchstabe.length; b++) {
+                    document.write("<span id='a" + b + "' class='a" + b + "'>" + Buchstabe[b] + "</span>")
+                }
+                farbschrift()
+            }
+            var a = 1;
+
+            function farbverlauf() {
+                for (var b = 0; b < farben.length; b++) {
+                    farben[b - 1] = farben[b]
+                }
+                farben[farben.length - 1] = farben[-1];
+                setTimeout("farbschrift()", 30)
+            }
+            var farbsatz = 1;
+
+            function farbtauscher() {
+                farben = farbbibliothek[farbsatz];
+                while (farben.length < text.length) {
+                    farben = farben.concat(farben)
+                }
+                farbsatz = Math.floor(Math.random() * (farbbibliothek.length - 0.0001))
+            }
+            setInterval("farbtauscher()", 5000);
+            text = "Case Study: Game Oẳn Tù Tì";
+            string2array(text);
+            divserzeugen();
+        </script>
+    </h1>
+    <a href="https://github.com/HoaiPhung96" class="github-corner" aria-label="View source on Github">
+        <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#7612a5; color:#fff000; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg>
+    </a>
+
+    <div class="button-con">
+        <label for='cb1'>
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35;" xml:space="preserve">
+        <g id="Sun">
+            <g>
+                <path style="fill-rule:evenodd;clip-rule:evenodd;" d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z" />
+            </g>
+        </g>
+    </svg>
+    </label>
+        <input class='toggle' id='cb1' type='checkbox'>
+        <label class='toggle-button' for='cb1'></label>
+        <label for='cb1'>
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
+      <path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z" />
+    </svg>
+    </label>
+    </div>
+
+    <div class="rps headroom-more footroom-more">
+        <div id="gameOverBox" class="game-over">
+            <h2 id="gameOverHead">Xin chúc mừng!</h2>
+            <p id="gameOverMsg">Bạn đã thắng trò chơi này!</p>
+            <div class="btn" onclick="playAgain()">Chơi lại</div>
+        </div>
+        <h1 class="game--title">Oẳn Tù Tì</h1>
+        <div class="player">
+            <h3>You</h3>
+            <div class="move">
+                <p id="playerMove"><i class="fa fa-smile-o"></i></p>
+            </div>
+            <div class="score-box">
+                <div class="playerPt score-box--pt"></div>
+                <div class="playerPt score-box--pt"></div>
+                <div class="playerPt score-box--pt"></div>
+            </div>
+        </div>
+
+        <div class="systemAInent">
+            <h3>Phung AI</h3>
+            <div class="move">
+                <p id="systemAIMove"><i class="fa fa-smile-o"></i></p>
+            </div>
+            <div class="score-box">
+                <div class="systemAIPt score-box--pt"></div>
+                <div class="systemAIPt score-box--pt"></div>
+                <div class="systemAIPt score-box--pt"></div>
+            </div>
+        </div>
+        <div class="game--report">
+            <h3 id="playByPlay">Vui lòng chọn trước.</h3>
+        </div>
+        <div class="game--report">
+            <h3 id="turnScore">Chúc bạn may mắn!</h3>
+        </div>
+        <div class="game--moves">
+            <div onclick="getPlayerMove('Búa')" class="game--moves_btn btn">
+                <i class='fa fa-hand-rock-o'></i>
+            </div>
+            <div onclick="getPlayerMove('Bao')" class="game--moves_btn btn">
+                <i class='fa fa-hand-paper-o'></i>
+            </div>
+            <div onclick="getPlayerMove('Kéo')" class="game--moves_btn btn">
+                <i class='fa fa-hand-scissors-o'></i>
+            </div>
+        </div>
+    </div>
+    <a href="#myModal" class="button" data-toggle="modal">Thông tin liên hệ</a>
+    <div id="myModal" class="modal fade">
+        <div class="modal-dialog modal-login">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="avatar">
+                        <img src="logo.png" width="100px" alt="Avatar">
+                    </div>
+                    <h4 class="modal-title">Code Gym</h4>
+                </div>
+                <div class="modal-body">
+                    <form action="/examples/actions/confirmation.php" method="post">
+                        <div class="form-group" style="text-align: center;">
+                            <p><b>Phạm Văn Hoài Phụng</b></p>
+                            <p>C0419H1</p>
+                            <p>Phone: 0976 546 832</p>
+                            <p>Hoaiphungcntt@gmail.com</p>
+                            Author:<a href="https://www.facebook.com/HoaiPhung1996" style="text-decoration: none;"> Hoai Phung</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="js/game.js"></script>
+
+</html>

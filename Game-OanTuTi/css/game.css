@@ -1,0 +1,468 @@
+.rps h1,
+.rps h2,
+.rps h3,
+.rps h5,
+.rps h6,
+.rps p {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    letter-spacing: 0;
+}
+
+.rps h1 {
+    font-size: 32px;
+}
+
+.rps h3 {
+    font-size: 18px;
+}
+
+.rps {
+    background-color: #e0e0e0;
+    font-family: sans-serif;
+    max-width: 460px;
+    min-width: 320px;
+    min-height: 420px;
+    max-height: 440px;
+    position: relative;
+    margin: 18px auto;
+    padding: 12px;
+    box-shadow: 10px 10px 12px -4px #00000080;
+    border: 4px solid rgba(48, 48, 48, 1);
+    border-radius: 5px;
+}
+
+.game-over {
+    position: absolute;
+    left: 10%;
+    top: 240px;
+    width: 80%;
+    height: 125px;
+    text-align: center;
+    background-color: lightgreen;
+    border: 4px solid darkgreen;
+    border-radius: 5px;
+    box-shadow: 8px 8px 8px -2px #00000080;
+    display: none;
+}
+
+.game-over>p {
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.rps .btn {
+    border: 3px solid #404040;
+    border-radius: 8px;
+    box-shadow: 3px 3px 3px #00000080;
+}
+
+.rps .game-over .btn {
+    width: 100px;
+    height: 20px;
+    padding: 10px;
+    margin: 0 auto;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.game--title {
+    padding: 3px 0;
+    margin: 0;
+    text-align: center;
+}
+
+.player,
+.systemAInent {
+    width: 44%;
+    padding: 10px;
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+.player {
+    float: left;
+}
+
+.systemAInent {
+    float: right;
+}
+
+.game--report {
+    width: 100%;
+    text-align: center;
+    padding-bottom: 3px;
+    clear: both;
+}
+
+.game--moves {
+    padding: 30px;
+    text-align: center;
+}
+
+.rps .game--moves_btn {
+    width: 50px;
+    height: 50px;
+    font-size: 40px;
+    margin: 0 10px;
+    padding: 9px;
+    background-color: cornflowerblue;
+    color: white;
+    display: inline-block;
+}
+
+.rps .game--moves_btn:hover,
+.rps .game--moves_btn:active {
+    background-color: lightsteelblue;
+}
+
+.move {
+    width: 75px;
+    height: 72px;
+    margin: 12px auto;
+    border: 1px solid rgba(0, 0, 0, 0.6);
+    border-radius: 3px;
+    box-shadow: -2px -2px 12px 0px #00000099 inset, 2px 2px 2px -1px rgba(0, 0, 0, 0.5);
+}
+
+.player .move {
+    background-color: royalblue;
+}
+
+.systemAInent .move {
+    background-color: red;
+}
+
+.move>p {
+    margin: 0 auto;
+    font-size: 48px;
+    font-weight: bold;
+    color: white;
+    margin-top: 10px;
+}
+
+.score-box {
+    width: 130px;
+    height: 40px;
+    margin: 0 auto;
+}
+
+.score-box--pt {
+    width: 32px;
+    height: 32px;
+    float: left;
+    margin: 6px 3px;
+    background-color: #ccc;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.67);
+    box-shadow: -3px -3px 12px 0px #00000099 inset, 2px 2px 2px -1px rgba(0, 0, 0, 0.5);
+}
+
+body {
+    text-align: center;
+    background: #25272A;
+    transition: background-color 150ms ease-out !important;
+}
+
+body.day-background {
+    background: #fff000;
+}
+
+.button-con {
+    cursor: default;
+    position: absolute;
+    top: 96%;
+    left: 50%;
+    margin-left: -72px;
+    margin-top: -15px;
+}
+
+#dayIcon {
+    position: relative;
+    width: 26px;
+    height: 26px;
+    top: -3px;
+    margin: 0 5px;
+    fill: #9caec0;
+}
+
+#nightIcon {
+    position: relative;
+    width: 26px;
+    height: 26px;
+    top: -3px;
+    margin: 0 5px;
+    fill: #9caec0;
+}
+
+#dayIcon,
+#nightIcon {
+    cursor: pointer;
+}
+
+.toggle {
+    display: none;
+}
+
+.toggle,
+.toggle:after,
+.toggle:before,
+.toggle *,
+.toggle *:after,
+.toggle *:before,
+.toggle+.toggle-button {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.toggle::-moz-selection,
+.toggle:after::-moz-selection,
+.toggle:before::-moz-selection,
+.toggle *::-moz-selection,
+.toggle *:after::-moz-selection,
+.toggle *:before::-moz-selection,
+.toggle+.toggle-button::-moz-selection {
+    background: none;
+}
+
+.toggle::selection,
+.toggle:after::selection,
+.toggle:before::selection,
+.toggle *::selection,
+.toggle *:after::selection,
+.toggle *:before::selection,
+.toggle+.toggle-button::selection {
+    background: none;
+}
+
+.toggle+.toggle-button {
+    outline: 0;
+    display: inline-block;
+    width: 4em;
+    height: 2em;
+    position: relative;
+    cursor: pointer;
+    border: 2px solid #333;
+    user-select: none;
+}
+
+.toggle+.toggle-button:after,
+.toggle+.toggle-button:before {
+    position: relative;
+    display: block;
+    content: "";
+    width: 50%;
+    height: 100%;
+}
+
+.toggle+.toggle-button:after {
+    left: 0;
+}
+
+.toggle+.toggle-button:before {
+    display: none;
+}
+
+.toggle:checked+.toggle-button:after {
+    left: 50%;
+}
+
+.toggle+.toggle-button {
+    padding: 2px;
+    transition: all .2s ease;
+    border: 2px solid rgba(156, 174, 192, 0.27);
+    border-radius: 2em;
+}
+
+.toggle+.toggle-button:after {
+    transition: all .2s ease;
+    background: rgba(156, 174, 192, 0.27);
+    content: "";
+    border-radius: 1em;
+}
+
+.toggle:checked+.toggle-button:after {
+    left: 50%;
+}
+
+.button {
+    border-radius: 5px;
+    color: #FFFFFF;
+    font-family: Arial;
+    font-size: 20px;
+    padding: 5px 10px;
+    text-decoration: none;
+    margin-left: 1005px;
+}
+
+@keyframes glowing {
+    0% {
+        background-color: #ff0000;
+        box-shadow: 0 0 3px #ff0000;
+    }
+    50% {
+        background-color: #0094FF;
+        box-shadow: 0 0 10px #0094FF;
+    }
+    100% {
+        background-color: #00ff22;
+        box-shadow: 0 0 3px #00ff22;
+    }
+}
+
+.button {
+    animation: glowing 1500ms infinite;
+}
+
+.modal-login {
+    color: #000000;
+    width: 250px !important;
+}
+
+.modal-login .modal-content {
+    padding: 10px;
+    border-radius: 5px;
+    border: solid 2px #000000;
+}
+
+.modal-login .modal-header {
+    border-bottom: none;
+    position: relative;
+    justify-content: center;
+}
+
+.modal-login h4 {
+    text-align: center;
+    font-size: 26px;
+    margin: 30px 0 -15px;
+}
+
+.modal-login .form-control:focus {
+    border-color: #70c5c0;
+}
+
+.modal-login .form-control,
+.modal-login .btn {
+    min-height: 40px;
+    border-radius: 3px;
+}
+
+.modal-login .close {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+}
+
+.modal-login .avatar {
+    position: absolute;
+    top: -158px;
+    margin: 50px;
+    width: 100px;
+    height: 100px;
+    border: solid 2px #000000;
+    background: #999;
+    border-radius: 50%;
+    margin-left: 60px;
+}
+
+.modal-login .avatar img {
+    width: 100px;
+    margin-top: 0px;
+    margin-left: 0px;
+}
+
+.modal-login.modal-dialog {
+    margin-top: 80px;
+}
+
+.modal-login .btn {
+    color: #fff;
+    border-radius: 4px;
+    background: #60c7c1;
+    text-decoration: none;
+    transition: all 0.4s;
+    line-height: normal;
+    border: none;
+}
+
+.modal-login .btn:hover,
+.modal-login .btn:focus {
+    background: #45aba6;
+    outline: none;
+}
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1040;
+    background-color: transparent !important;
+}
+
+.modal-login.modal-dialog {
+    margin-top: 360px;
+    margin-left: 1013px;
+}
+
+.form-group {
+    padding: 15px;
+}
+
+.form-group p {
+    margin: 0 0 10px;
+    height: 23px;
+    width: 165px;
+    margin-bottom: 0px;
+}
+
+.modal-open {
+    overflow: hidden
+}
+
+.modal-open .modal {
+    overflow-x: hidden;
+    overflow-y: auto
+}
+
+.fade.in {
+    opacity: 1
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1050;
+    display: none;
+    overflow: hidden;
+    outline: 0
+}
+
+.fade {
+    opacity: 0;
+    transition: opacity .15s linear
+}
+
+.modal-content {
+    position: relative;
+    background-color: #fff;
+    background-clip: padding-box;
+    outline: 0;
+    box-shadow: 0 3px 9px #00000080;
+    height: 190px;
+    width: 222px;
+}
+
+.modal-body {
+    position: relative;
+    padding: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-top: 18px;
+}
